@@ -4,10 +4,8 @@ const port = 8000;
 var nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
 
 // just for example access controll is set to all
 
@@ -35,9 +33,10 @@ app.post("/sendMail", async (req, res) => {
   };
   try {
     const mailState = await transporter.sendMail(mailOptions);
+    console.log("Mail was sent ?=>", mailState);
     res.send(mailState);
   } catch (error) {
-    console.log("===>", error.response);
+    console.log("===>", error);
   }
 });
 
