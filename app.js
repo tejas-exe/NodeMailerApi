@@ -1,12 +1,14 @@
 const express = require("express");
 const app = express();
 const port = 8000;
+const hostName = '0.0.0.0';
 var nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
 
 // just for example access controll is set to all
 
@@ -40,6 +42,6 @@ app.post("/sendMail", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
+app.listen(port,hostName, () => {
   console.log(`listening on port ${port}`);
 });
