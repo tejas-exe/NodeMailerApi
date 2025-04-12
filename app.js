@@ -17,16 +17,15 @@ app.use((req, res, next) => {
 });
 
 app.post("/sendMail", async (req, res) => {
-  console.log("======>", req.body);
   var transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "kumarley.tejas7.tk15@gmail.com",
-      pass: "ldfsyrkhqstusenl",
+      user: "",
+      pass: "",
     },
   });
   const mailOptions = {
-    from: "kumarley.tejas7.tk15@gmail.com", // sender address
+    from: "", // sender address
     to: req.body.email, // list of receivers
     subject: req.body.subject, // Subject line
     html: req.body.htmlBody, // plain text body
